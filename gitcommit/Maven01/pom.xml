@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.it.maven</groupId>
+  <artifactId>Maven01</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Maven01</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.9</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    
+    <!-- 验证nexus -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.9</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    
+  </dependencies>
+  
+  <!--step4:紧接着前面4个step步骤，如果要发布这个项目就得这样配置  -->
+  <distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Internal Releases</name>
+			<url>http://localhost:8022/nexus-2.7.0-06/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal Snapshots</name>
+			<url>http://localhost:8022/nexus-2.7.0-06/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+  
+  
+  <build>
+  		<plugins>
+  		<!--编译插件，指定编译使用的jdk版本为1.7  -->
+  			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+  			
+  		</plugins>
+  		
+  </build>
+  
+  
+</project>
